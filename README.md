@@ -1,11 +1,11 @@
-# git-config
+# guld-git-config
 
 Guld configuration helper manages git config files.
 
 ### Example Output
 
 ```
-$ guld-config list
+$ guld-git-config list
 user.username=isysd
 user.signingkey=C7EA0E59D0660BF6848614B6441BDDD420F44729
 commit.gpgsign=true
@@ -23,7 +23,7 @@ core.logallrefupdates=true
 ### Install
 
 ```
-npm i -g guld-config
+npm i guld-git-config
 ```
 
 ### Usage
@@ -40,9 +40,9 @@ var cfg = await getConfig('local') // {core: {test: true}}
 ##### Node
 
 ```
-const { guldName, getConfig, setConfig, unsetConfig } = require('guld-config')
+const { guldName, getConfig, setConfig, unsetConfig } = require('guld-git-config')
 ```
 
 ##### CLI
 
-See [guld-config-cli](https://github.com/isysd/tech-js-node_modules-guld-config-cli).
+See [guld-git-config-cli](https://github.com/isysd/tech-js-node_modules-guld-git-config-cli).

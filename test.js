@@ -18,7 +18,7 @@ async function runSetGet (scope) {
   await writeConfig(this[scope], scope)
 }
 
-describe('guld-config', function () {
+describe('guld-git-config', function () {
   before(async function () {
     guldname = await guldName()
   })
@@ -50,7 +50,7 @@ describe('guld-config', function () {
     it('local', async function () {
       this.local = await getConfigPath('local')
       assert.exists(this.local)
-      assert.isTrue(this.local.endsWith('guld-config/.git/config'))
+      assert.isTrue(this.local.endsWith('guld-git-config/.git/config'))
     })
     it('global', async function () {
       this.global = await getConfigPath('global')

@@ -1,4 +1,4 @@
-const { getEnv, setGlobal } = require('guld-env')
+const { getJS, setGlobal } = require('guld-env')
 const { getFS } = require('guld-fs')
 const getGitDir = require('guld-git-dir')
 const path = require('path')
@@ -100,7 +100,7 @@ async function guldName () {
   var cfg
   if (global.GULDNAME && typeof global.GULDNAME !== 'undefined' && global.GULDNAME.length > 0) {
     return global.GULDNAME
-  } else if (getEnv().startsWith('node')) {
+  } else if (getJS().startsWith('node')) {
     if (process.env.GULDNAME && typeof process.env.GULDNAME !== 'undefined' && process.env.GULDNAME.length > 0) {
       return setGlobal('GULDNAME', process.env.GULDNAME)
     } else {
@@ -139,5 +139,5 @@ module.exports = {
   writeConfig: writeConfig,
   mergeConfig: mergeConfig,
   setupConfig: setupConfig,
-   guldName: guldName
+  guldName: guldName
 }
