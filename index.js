@@ -1,6 +1,6 @@
 const { getJS, setGlobal } = require('guld-env')
 const { getFS } = require('guld-fs')
-const getGitDir = require('guld-git-dir')
+const { getGitDir } = require('guld-git-path')
 const path = require('path')
 const ini = require('ini')
 const home = require('user-home')
@@ -16,8 +16,8 @@ async function getConfigPath (scope = 'merged', owner = undefined) {
   if (scope === 'global') {
     return path.join(home, '.gitconfig')
   } else if (scope === 'public') {
-    if (owner === undefined) owner = await guldName()
-    return path.join(home, 'dotfiles', owner, '.gitconfig')
+    if (typeof owner === 'string') return path.join(home, 'dotfiles', owner, '.gitconfig')
+    else return path.join(home, 'dotfiles', global.GULDUSER || process.env.GULDUSER || process.env.USER, '.gitconfig')
   } else if (scope === 'system') {
     return path.join('/etc', 'gitconfig')
   } else if (scope === 'local') {
@@ -89,30 +89,10 @@ async function unsetConfig (key, scope = 'merged', owner = undefined) {
   await writeConfig(c, scope, owner)
 }
 
-async function setupConfig (cfg, owner = undefined) {
+async function setupConfig (cfg, owner) {
   var c = await mergeConfig(cfg, 'public', owner)
-  var guldname = await guldName()
-  if (owner === undefined || guldname === owner) c = await mergeConfig(c, 'global')
+  c = await mergeConfig(c, 'global')
   return c
-}
-
-async function guldName () {
-  var cfg
-  if (global.GULDNAME && typeof global.GULDNAME !== 'undefined' && global.GULDNAME.length > 0) {
-    return global.GULDNAME
-  } else if (getJS().startsWith('node')) {
-    if (process.env.GULDNAME && typeof process.env.GULDNAME !== 'undefined' && process.env.GULDNAME.length > 0) {
-      return setGlobal('GULDNAME', process.env.GULDNAME)
-    } else {
-      cfg = await getConfig('global')
-      if (cfg && cfg.user && cfg.user.username) return setGlobal('GULDNAME', cfg.user.username)
-      if (process.env.USER) return setGlobal('GULDNAME', process.env.USER)
-    }
-  } else {
-    cfg = await getConfig('global')
-    if (cfg && cfg.user && cfg.user.username) return setGlobal('GULDNAME', cfg.user.username)
-  }
-  return setGlobal('GULDNAME', 'guld')
 }
 
 async function getMergedConfig (fn, pre, post) {
@@ -138,6 +118,5 @@ module.exports = {
   unsetConfig: unsetConfig,
   writeConfig: writeConfig,
   mergeConfig: mergeConfig,
-  setupConfig: setupConfig,
-  guldName: guldName
+  setupConfig: setupConfig
 }
