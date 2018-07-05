@@ -1,6 +1,7 @@
 /* eslint-env node, mocha */
 const assert = require('chai').assert
-const { getConfigPath, guldName, getConfig, writeConfig, mergeConfig, setConfig, unsetConfig, setupConfig } = require('./index.js')
+const { getName } = require('guld-user')
+const { getConfigPath, getConfig, writeConfig, mergeConfig, setConfig, unsetConfig, setupConfig } = require('./index.js')
 const global = require('window-or-global')
 const { getFS } = require('guld-fs')
 var fs
@@ -20,28 +21,28 @@ async function runSetGet (scope) {
 
 describe('guld-git-config', function () {
   before(async function () {
-    guldname = await guldName()
+    guldname = await getName()
   })
-  describe('guldName', function () {
+  describe('getName', function () {
     after(async function () {
       delete process.env.GULDNAME
       delete global.GULDNAME
-      guldname = await guldName()
+      guldname = await getName()
     })
     it('USER env', async function () {
-      guldname = await guldName()
+      guldname = await getName()
       assert.exists(guldname)
       assert.equal(guldname, process.env.USER)
     })
     it('cached', async function () {
       process.env.GULDNAME = 'testuser'
-      guldname = await guldName()
+      guldname = await getName()
       assert.exists(guldname)
       assert.equal(guldname, process.env.USER)
     })
     it('GULDNAME env', async function () {
       delete global.GULDNAME
-      guldname = await guldName()
+      guldname = await getName()
       assert.exists(guldname)
       assert.equal(guldname, process.env.GULDNAME)
     })
