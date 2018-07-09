@@ -16,7 +16,7 @@
   "author": "isysd",
   "license": "MIT",
   "dependencies": {
-    "git-config-ini": "git+https://github.com/isysd/git-config-ini.git",
+    "git-config-ini": "git+https://github.com/isysd/git-config-ini.git#isysd",
     "guld-fs": "^1.0.0",
     "guld-git-path": "^1.0.1",
     "guld-user": "^0.5.0",
