@@ -17,9 +17,9 @@
   "license": "MIT",
   "dependencies": {
     "git-config-ini": "git+https://github.com/isysd/git-config-ini.git#isysd",
-    "guld-fs": "^1.2.7",
-    "guld-git-path": "^1.0.5",
-    "guld-user": "^0.5.4",
+    "guld-fs": "^1.2.8",
+    "guld-git-path": "^1.0.6",
+    "guld-user": "^0.5.5",
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
     "lodash.unset": "^4.5.2",
