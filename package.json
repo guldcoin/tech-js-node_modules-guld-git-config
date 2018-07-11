@@ -17,9 +17,9 @@
   "license": "MIT",
   "dependencies": {
     "git-config-ini": "git+https://github.com/isysd/git-config-ini.git#isysd",
-    "guld-fs": "^1.2.5",
+    "guld-fs": "^1.2.6",
     "guld-git-path": "^1.0.4",
-    "guld-user": "^0.5.2",
+    "guld-user": "^0.5.3",
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
     "lodash.unset": "^4.5.2",
@@ -47,5 +47,7 @@
   "readme": "README.md",
   "engines": {
     "node": ">=7"
-  }
+  },
+  "homepage": "https://github.com/isysd/tech-js-node_modules-guld-git-config#readme",
+  "repository": "git@github.com:isysd/tech-js-node_modules-guld-git-config.git"
 }
