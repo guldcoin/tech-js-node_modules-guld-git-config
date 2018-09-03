@@ -1,25 +1,20 @@
 {
   "name": "guld-git-config",
-  "version": "1.2.11",
+  "version": "1.2.12",
   "description": "Guld configuration helper manages git config files.",
   "main": "index.js",
-  "scripts": {
-    "test": "./node_modules/mocha/bin/_mocha",
-    "lint": "eslint --env browser *.js*",
-    "fix": "eslint --fix *.js*"
-  },
   "keywords": [
     "guld",
+    "node",
+    "browser",
     "config",
     "environment"
   ],
   "author": "isysd",
   "license": "MIT",
   "dependencies": {
-    "git-config-ini": "git+https://github.com/isysd/git-config-ini.git#isysd",
-    "guld-fs": "^1.2.14",
-    "guld-git-path": "^1.0.11",
-    "guld-user": "^0.5.9",
+    "guld-git-config-ini": "^2.0.12",
+    "guld-git-path": "^1.1.2",
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
     "lodash.unset": "^4.5.2",
@@ -27,27 +22,24 @@
     "user-home": "^2.0.0",
     "window-or-global": "^1.0.1"
   },
+  "peerDependencies": {
+    "guld-fs": "^1.3.2",
+    "guld-user": "^0.5.10"
+  },
   "devDependencies": {
     "chai": "^4.1.2",
     "eslint": "^5.1.0",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-es5": "^1.3.1",
+    "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-json": "^1.2.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-standard": "^3.1.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.0",
+    "eslint-plugin-standard": "^4.0.0",
     "mocha": "^5.2.0",
     "pre-commit": "^1.2.2"
   },
-  "pre-commit": [
-    "lint",
-    "test"
-  ],
   "readme": "README.md",
   "engines": {
     "node": ">=7"
-  },
-  "homepage": "https://github.com/isysd/tech-js-node_modules-guld-git-config#readme",
-  "repository": "git@github.com:isysd/tech-js-node_modules-guld-git-config.git"
+  }
 }

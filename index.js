@@ -1,7 +1,7 @@
 const { getFS } = require('guld-fs')
 const { getGitDir } = require('guld-git-path')
 const path = require('path')
-const ini = require('git-config-ini')
+const ini = require('guld-git-config-ini')
 const home = require('user-home')
 const _unset = require('lodash.unset')
 const _set = require('lodash.set')
