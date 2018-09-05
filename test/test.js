@@ -1,7 +1,7 @@
 /* eslint-env node, mocha */
 const assert = require('chai').assert
 const { getName } = require('guld-user')
-const { getConfigPath, getConfig, writeConfig, mergeConfig, setConfig, unsetConfig, setupConfig } = require('./index.js')
+const { getConfigPath, getConfig, writeConfig, mergeConfig, setConfig, unsetConfig, setupConfig } = require('../index.js')
 const global = require('window-or-global')
 const { getFS } = require('guld-fs')
 var fs

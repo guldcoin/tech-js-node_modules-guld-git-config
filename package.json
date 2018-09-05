@@ -14,7 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "guld-git-config-ini": "^2.0.12",
-    "guld-git-path": "^1.1.2",
+    "guld-git-path": "^1.1.4",
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
     "lodash.unset": "^4.5.2",
@@ -36,10 +36,29 @@
     "eslint-plugin-promise": "^4.0.0",
     "eslint-plugin-standard": "^4.0.0",
     "mocha": "^5.2.0",
-    "pre-commit": "^1.2.2"
+    "pre-commit": "^1.2.2",
+    "webpack": "^0.0.1",
+    "mochify": "^0.0.1",
+    "puppeteer": "^0.0.1"
   },
   "readme": "README.md",
   "engines": {
     "node": ">=7"
-  }
+  },
+  "scripts": {
+    "test": "mocha test/*.js",
+    "lint": "eslint *.js* test/*.js",
+    "fix": "eslint --fix *.js* test/*.js",
+    "test:lint": "npm run lint && npm run test",
+    "build": "webpack"
+  },
+  "homepage": "https://guld.tech/lib/guld-git-config.html",
+  "repository": "https://bitbucket.org/guld/tech-js-node_modules-guld-git-config",
+  "browser": "guld-git-config.min.js",
+  "eslintIgnore": [
+    "*.min.js"
+  ],
+  "pre-commit": [
+    "test:lint"
+  ]
 }
